@@ -1,0 +1,59 @@
+package com.financialcontrol.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity(name="AUTHENTICATION")
+public class User {
+
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	@NotNull
+	private String login;
+	
+	@NotNull
+	@Size(min=8, message="Password should have atleast 8 characters")
+	private String secret;
+	
+	public User() {}
+	
+	public User(String login, String secret) {}
+	
+	public User(User auth){
+		this.login = auth.getLogin();
+        this.secret = auth.getSecret();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSecret() {
+		return secret;
+	}
+
+	public void setSecret(String secret) {
+		this.secret = secret;
+	}
+	
+	
+
+	
+}

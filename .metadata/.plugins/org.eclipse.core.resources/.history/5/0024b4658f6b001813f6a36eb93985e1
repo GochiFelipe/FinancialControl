@@ -1,0 +1,12 @@
+package com.FinancialControl.FinancialControl.service;
+
+import java.util.List;
+
+import com.FinancialControl.FinancialControl.model.User;
+
+public interface UserService {
+	
+	public List<User> listUsers();
+	public User findByUsername(String name);
+	
+}
